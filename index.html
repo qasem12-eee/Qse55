@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بقالة السفير | الجودة في كل طلب</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a531b;
+            --secondary-color: #2e7d32;
+            --accent-color: #ffc107;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --bg-light: #f9fbf9;
+            --white: #ffffff;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 10px rgba(26, 83, 27, 0.3);
+        }
+
+        .logo-text h1 {
+            font-size: 22px;
+            color: var(--primary-color);
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .logo-text span {
+            font-size: 12px;
+            color: var(--text-light);
+            letter-spacing: 1px;
+        }
+
+        .contact-fast {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-call {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-call:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(26, 83, 27, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 40px 0;
+        }
+
+        .hero-card {
+            position: relative;
+            height: 500px;
+            border-radius: 30px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            background: #2d3436;
+        }
+
+        .hero-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+        }
+
+        .hero-overlay {
+            position: relative;
+            z-index: 2;
+            padding: 0 60px;
+            max-width: 700px;
+            color: white;
+        }
+
+        .hero-overlay h2 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-overlay p {
+            font-size: 20px;
+            margin-bottom: 35px;
+            opacity: 0.9;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Product Cards */
+        .section-header {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 15px;
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .card-img-wrapper {
+            height: 180px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .price-tag {
+            color: var(--secondary-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        /* Order Form Area */
+        .order-section {
+            background: #fff;
+            border-radius: 30px;
+            padding: 50px;
+            margin: 60px 0;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.03);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #eee;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+            background: #f0f7f0;
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: white;
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .btn-whatsapp:hover {
+            background: #1eb954;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .order-section { grid-template-columns: 1fr; }
+            .hero-card { height: 400px; }
+            .hero-overlay h2 { font-size: 32px; }
+        }
+
+        @media (max-width: 600px) {
+            .contact-fast { display: none; }
+            .hero-overlay { padding: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#" class="logo">
+                    <div class="logo-icon"><i class="fas fa-leaf"></i></div>
+                    <div class="logo-text">
+                        <h1>بقالة السفير</h1>
+                        <span>AL-SAFEER MARKET</span>
+                    </div>
+                </a>
+                <div class="contact-fast">
+                    <a href="tel:0115520836" class="btn-call">
+                        <i class="fas fa-phone"></i>
+                        0115520836
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-card">
+                <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80" class="hero-img" alt="Fresh Food">
+                <div class="hero-overlay">
+                    <h2>مقاضي البيت.. <br>توصلك طازجة وبسرعة!</h2>
+                    <p>أجود أنواع الخضروات، الفواكه، والمنتجات الغذائية نختارها لك بعناية فائقة ونوصلها لباب بيتك.</p>
+                    <div class="cta-group">
+                        <a href="#orderForm" class="btn-call" style="padding: 15px 40px; font-size: 18px;">اطلب الآن</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid-layout" style="margin-top: -50px; position: relative; z-index: 5;">
+            <div class="card" style="padding: 30px;">
+                <i class="fas fa-truck-fast" style="font-size: 40px; color: var(--secondary-color); margin-bottom: 15px;"></i>
+                <h3>توصيل فائق السرعة</h3>
+                <p>خلال 30 دقيقة نكون عند بابك</p>
+            </div>
+            <div class="card" style="padding: 30px;">
+                <i class="fas fa-check-double" style="font-size: 40px; color: var(--secondary-color); margin-bottom: 15px;"></i>
+                <h3>جودة مضمونة</h3>
+                <p>نختار المنتجات وكأننا نختارها لبيوتنا</p>
+            </div>
+            <div class="card" style="padding: 30px;">
+                <i class="fas fa-clock" style="font-size: 40px; color: var(--secondary-color); margin-bottom: 15px;"></i>
+                <h3>خدمة 24/7</h3>
+                <p>جاهزون لخدمتك في أي وقت</p>
+            </div>
+        </div>
+
+        <section class="section-header">
+            <h2>أقسامنا المميزة</h2>
+        </section>
+
+        <div class="grid-layout">
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=400&q=80" alt="Fruits">
+                </div>
+                <h3>فواكه موسمية</h3>
+                <div class="price-tag">أسعار تنافسية</div>
+                <button onclick="scrollToOrder()" class="btn-call" style="background: none; color: var(--primary-color); border: 1px solid var(--primary-color); width: 100%; justify-content: center;">إضافة للطلب</button>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1597362925123-77861d3fbac7?auto=format&fit=crop&w=400&q=80" alt="Vegetables">
+                </div>
+                <h3>خضروات طازجة</h3>
+                <div class="price-tag">قطاف اليوم</div>
+                <button onclick="scrollToOrder()" class="btn-call" style="background: none; color: var(--primary-color); border: 1px solid var(--primary-color); width: 100%; justify-content: center;">إضافة للطلب</button>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1550586678-f7225f03c44b?auto=format&fit=crop&w=400&q=80" alt="Dairy">
+                </div>
+                <h3>ألبان وأجبان</h3>
+                <div class="price-tag">منتجات طازجة</div>
+                <button onclick="scrollToOrder()" class="btn-call" style="background: none; color: var(--primary-color); border: 1px solid var(--primary-color); width: 100%; justify-content: center;">إضافة للطلب</button>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80" alt="Bakery">
+                </div>
+                <h3>مخبوزات</h3>
+                <div class="price-tag">ساخنة يومياً</div>
+                <button onclick="scrollToOrder()" class="btn-call" style="background: none; color: var(--primary-color); border: 1px solid var(--primary-color); width: 100%; justify-content: center;">إضافة للطلب</button>
+            </div>
+        </div>
+
+        <section class="order-section" id="orderForm">
+            <div>
+                <h2 style="font-size: 36px; color: var(--primary-color); margin-bottom: 20px;">اطلب الآن عبر واتساب</h2>
+                <p style="color: var(--text-light); font-size: 18px; margin-bottom: 30px;">
+                    لا تضيع وقتك في الزحام، أرسل قائمة مشترياتك وسنتكفل بالباقي. 
+                    يصلك مندوبنا في أسرع وقت ممكن مع خيارات دفع مرنة.
+                </p>
+                <div style="background: #f0f7f0; padding: 20px; border-radius: 15px; border-right: 5px solid var(--secondary-color);">
+                    <p><strong><i class="fas fa-info-circle"></i> ملاحظة:</strong> الدفع متاح (كاش) أو (شبكة) عند الاستلام.</p>
+                </div>
+            </div>
+            
+            <form id="safeerOrderForm">
+                <label style="font-weight: 700; display: block; margin-bottom: 10px;">قائمة الطلبات:</label>
+                <textarea id="msgDetails" class="form-control" rows="5" placeholder="مثال: 3 كيلو بصل، كرتون مياه، 2 حليب نادك..." required></textarea>
+                
+                <label style="font-weight: 700; display: block; margin-bottom: 10px;">العنوان أو ملاحظات إضافية:</label>
+                <input type="text" id="msgAddress" class="form-control" placeholder="الحي، اسم الشارع، رقم المبنى">
+                
+                <button type="submit" class="btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    إرسال الطلب للمتجر
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <footer style="background: var(--primary-color); color: white; padding: 60px 0 30px; margin-top: 100px;">
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+            <div>
+                <h3>بقالة السفير</h3>
+                <p style="opacity: 0.8; margin-top: 15px;">خيارك الأول للمقاضي اليومية في منطقتك. جودة، سعر، وسرعة.</p>
+            </div>
+            <div>
+                <h4>روابط سريعة</h4>
+                <ul style="list-style: none; margin-top: 15px; line-height: 2;">
+                    <li><a href="#" style="color: white; text-decoration: none;">الرئيسية</a></li>
+                    <li><a href="#orderForm" style="color: white; text-decoration: none;">اطلب الآن</a></li>
+                    <li><a href="tel:0115520836" style="color: white; text-decoration: none;">اتصل بنا</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>تواصل معنا</h4>
+                <div style="margin-top: 15px; font-size: 20px; display: flex; gap: 15px;">
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-snapchat"></i>
+                    <i class="fab fa-twitter"></i>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 14px; opacity: 0.7;">
+            &copy; 2026 بقالة السفير - جميع الحقوق محفوظة
+        </div>
+    </footer>
+
+    <script>
+        function scrollToOrder() {
+            document.getElementById('orderForm').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('msgDetails').focus();
+        }
+
+        document.getElementById('safeerOrderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const details = document.getElementById('msgDetails').value;
+            const address = document.getElementById('msgAddress').value;
+            const phone = "966550358482"; // رقم الواتساب
+            
+            let text = `*طلب جديد من بقالة السفير* \n\n`;
+            text += `*الطلبات:* \n${details} \n\n`;
+            if(address) text += `*العنوان:* ${address}`;
+            
+            const encodedText = encodeURIComponent(text);
+            window.open(`https://wa.me/${phone}?text=${encodedText}`, '_blank');
+        });
+    </script>
+</body>
+</html>
+<script>
+    // دالة التمرير السلس إلى نموذج الطلب
+    function scrollToOrder() {
+        document.getElementById('orderForm').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('msgDetails').focus();
+    }
+
+    // معالجة إرسال النموذج
+    document.getElementById('safeerOrderForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // جلب العناصر
+        const formElement = this;
+        const detailsInput = document.getElementById('msgDetails');
+        const addressInput = document.getElementById('msgAddress');
+        
+        const details = detailsInput.value;
+        const address = addressInput.value;
+        const phone = "966550358482"; // رقم الواتساب الخاص بك
+        
+        // بناء نص الرسالة الاحترافي
+        let text = `*طلب جديد من بقالة السفير* 🛒\n\n`;
+        text += `*قائمة الطلبات:* \n${details}\n\n`;
+        if(address) text += `*العنوان/ملاحظات:* ${address}\n`;
+        text += `\n--- تم الإرسال من موقع السفير ---`;
+        
+        // ترميز النص وفتح واتساب
+        const encodedText = encodeURIComponent(text);
+        window.open(`https://wa.me/${phone}?text=${encodedText}`, '_blank');
+        
+        // التعديل الجديد: تفريغ الخانات بعد الإرسال مباشرة
+        setTimeout(() => {
+            formElement.reset(); // يقوم بمسح كل الحقول داخل النموذج
+            alert("تم تجهيز الطلب وفتح واتساب للإرسال ✅");
+        }, 500);
+    });
+</script>
